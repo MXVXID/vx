@@ -70,13 +70,13 @@ echo -e "$COLOR1└────────────────────�
 echo -e "$COLOR1┌─────────────────────────────────────────────────┐${NC}"
 echo -e "$COLOR1│${NC}  $COLOR1[INFO]${NC} Check for Script updates"
 sleep 2
-wget -q -O /root/update.sh "https://raw.githubusercontent.com/adammoi/xoc/main/update.sh" && chmod +x /root/update.sh
+wget -q -O /root/update.sh "https://raw.githubusercontent.com/MXVXID/vx/main/v2/menu/update.sh" && chmod +x /root/update.sh
 sleep 2
 ./update.sh
 sleep 2
 rm /root/update.sh
 rm /opt/.ver
-version_up=$( curl -sS https://raw.githubusercontent.com/adammoi/xoc/main/version_up)
+version_up=$( curl -sS https://raw.githubusercontent.com/MXVXID/vx/main/v2/version_up)
 echo "$version_up" > /opt/.ver
 echo -e "$COLOR1│${NC}  $COLOR1[INFO]${NC} Successfully Up To Date!"
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}"
@@ -100,9 +100,9 @@ cekup=`uptime -p | grep -ow "day"`
 spd="menu-speedtest"
 log="logcleaner"
 IPVPS=$(curl -s ipinfo.io/ip )
-serverV=$( curl -sS https://raw.githubusercontent.com/adammoi/xoc/main/version_up)
+serverV=$( curl -sS https://raw.githubusercontent.com//MXVXID/vx/main/v2/version_up)
 Isadmin=ON
-Name=ADAM
+Name=MXVX
 if [ "$Isadmin" = "ON" ]; then
 uis="${GREEN}Premium User$NC"
 else
