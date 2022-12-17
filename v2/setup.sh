@@ -28,11 +28,11 @@ mkdir -p /etc/xray
 touch /etc/xray/domain
 touch /etc/xray/scdomain
 
-echo -e "[ ${tyblue}NOTES${NC} ] Before we go.. "
+echo -e "[ ${tyblue}NOTES${NC} ] Bismillah "
 sleep 1
-echo -e "[ ${tyblue}NOTES${NC} ] I need check your headers first.."
+echo -e "[ ${tyblue}NOTES${NC} ] Alhamdulilah"
 sleep 2
-echo -e "[ ${green}INFO${NC} ] Checking headers"
+echo -e "[ ${green}INFO${NC} ] Checking DO'A"
 sleep 1
 totet=`uname -r`
 REQUIRED_PKG="linux-headers-$totet"
@@ -99,10 +99,10 @@ sleep 2
 echo -ne "[ ${green}INFO${NC} ] Check permission : "
 
 
-mkdir -p /etc/SIJA
-mkdir -p /etc/SIJA/theme
-mkdir -p /var/lib/SIJA >/dev/null 2>&1
-echo "IP="  /var/lib/SIJA/ipvps.conf
+mkdir -p /etc/mXvx
+mkdir -p /etc/mXvx/theme
+mkdir -p /var/lib/mXvx >/dev/null 2>&1
+echo "IP="  /var/lib/mXvx/ipvps.conf
 
 echo ""
 wget -q https://raw.githubusercontent.com/MXVXID/vx/main/v2/pkg/dependencies.sh;chmod +x dependencies.sh;./dependencies.sh
@@ -121,41 +121,41 @@ read -rp "Input ur domain : " -e pp
 	echo "$pp" > /etc/xray/scdomain
 	echo "$pp" > /etc/xray/domain
 	echo $pp > /root/domain
-        echo "IP=$pp" > /var/lib/SIJA/ipvps.conf
+        echo "IP=$pp" > /var/lib/mXvx/ipvps.conf
     fi
 
 #THEME RED
-cat <<EOF>> /etc/SIJA/theme/red
+cat <<EOF>> /etc/mXvx/theme/red
 BG : \E[40;1;41m
 TEXT : \033[0;31m
 EOF
 #THEME BLUE
-cat <<EOF>> /etc/SIJA/theme/blue
+cat <<EOF>> /etc/mXvx/theme/blue
 BG : \E[40;1;44m
 TEXT : \033[0;34m
 EOF
 #THEME GREEN
-cat <<EOF>> /etc/SIJA/theme/green
+cat <<EOF>> /etc/mXvx/theme/green
 BG : \E[40;1;42m
 TEXT : \033[0;32m
 EOF
 #THEME YELLOW
-cat <<EOF>> /etc/SIJA/theme/yellow
+cat <<EOF>> /etc/mXvx/theme/yellow
 BG : \E[40;1;43m
 TEXT : \033[0;33m
 EOF
 #THEME MAGENTA
-cat <<EOF>> /etc/SIJA/theme/magenta
+cat <<EOF>> /etc/mXvx/theme/magenta
 BG : \E[40;1;43m
 TEXT : \033[0;33m
 EOF
 #THEME CYAN
-cat <<EOF>> /etc/SIJA/theme/cyan
+cat <<EOF>> /etc/mXvx/theme/cyan
 BG : \E[40;1;46m
 TEXT : \033[0;36m
 EOF
 #THEME CONFIG
-cat <<EOF>> /etc/SIJA/theme/color.conf
+cat <<EOF>> /etc/mXvx/theme/color.conf
 blue
 EOF
 
