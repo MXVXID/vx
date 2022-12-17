@@ -100,6 +100,10 @@ cekup=`uptime -p | grep -ow "day"`
 spd="menu-speedtest"
 log="logcleaner"
 IPVPS=$(curl -s ipinfo.io/ip )
+ISP=$(curl -s ipinfo.io/org | cut -d " " -f 2-10 )
+tram=$( free -m | awk 'NR==2 {print $2}' )
+uram=$( free -m | awk 'NR==2 {print $3}' )
+fram=$( free -m | awk 'NR==2 {print $4}' )
 serverV=$( curl -sS https://raw.githubusercontent.com//MXVXID/vx/main/v2/version_up)
 Isadmin=ON
 Name=MXVX
