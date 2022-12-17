@@ -101,6 +101,7 @@ spd="menu-speedtest"
 log="logcleaner"
 IPVPS=$(curl -s ipinfo.io/ip )
 ISP=$(curl -s ipinfo.io/org | cut -d " " -f 2-10 )
+CITY=$(curl -s ipinfo.io/city )
 tram=$( free -m | awk 'NR==2 {print $2}' )
 uram=$( free -m | awk 'NR==2 {print $3}' )
 fram=$( free -m | awk 'NR==2 {print $4}' )
