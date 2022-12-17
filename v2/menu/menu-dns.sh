@@ -1,14 +1,14 @@
 #!/bin/bash
 MYIP=$(wget -qO- ipinfo.io/ip);
 
-colornow=$(cat /etc/SIJA/theme/color.conf)
+colornow=$(cat /etc/mXvx/theme/color.conf)
 NC="\e[0m"
-COLOR1="$(cat /etc/SIJA/theme/$colornow | grep -w "TEXT" | cut -d: -f2|sed 's/ //g')"
-COLBG1="$(cat /etc/SIJA/theme/$colornow | grep -w "BG" | cut -d: -f2|sed 's/ //g')"
+COLOR1="$(cat /etc/mXvx/theme/$colornow | grep -w "TEXT" | cut -d: -f2|sed 's/ //g')"
+COLBG1="$(cat /etc/mXvx/theme/$colornow | grep -w "BG" | cut -d: -f2|sed 's/ //g')"
 
-APIGIT=$(cat /etc/SIJA/github/api)
-EMAILGIT=$(cat /etc/SIJA/github/email)
-USERGIT=$(cat /etc/SIJA/github/username)
+APIGIT=$(cat /etc/mXvx/github/api)
+EMAILGIT=$(cat /etc/mXvx/github/email)
+USERGIT=$(cat /etc/mXvx/github/username)
 
 export RED='\033[0;31m';
 export GREEN='\033[0;32m';

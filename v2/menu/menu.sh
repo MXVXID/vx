@@ -2,11 +2,11 @@
 dateFromServer=$(curl -v --insecure --silent https://google.com/ 2>&1 | grep Date | sed -e 's/< Date: //')
 biji=`date +"%Y-%m-%d" -d "$dateFromServer"`
 ###########- COLOR CODE -##############
-colornow=$(cat /etc/SIJA/theme/color.conf)
+colornow=$(cat /etc/mXvx/theme/color.conf)
 NC="\e[0m"
 RED="\033[0;31m" 
-COLOR1="$(cat /etc/SIJA/theme/$colornow | grep -w "TEXT" | cut -d: -f2|sed 's/ //g')"
-COLBG1="$(cat /etc/SIJA/theme/$colornow | grep -w "BG" | cut -d: -f2|sed 's/ //g')"                    
+COLOR1="$(cat /etc/mXvx/theme/$colornow | grep -w "TEXT" | cut -d: -f2|sed 's/ //g')"
+COLBG1="$(cat /etc/mXvx/theme/$colornow | grep -w "BG" | cut -d: -f2|sed 's/ //g')"                    
 ###########- END COLOR CODE -##########
 
 export RED='\033[0;31m'
@@ -51,7 +51,7 @@ echo ""
 read -n 1 -s -r -p "  Press any key to back on menu"
 menu
 else
-echo "IP=$host" > /var/lib/SIJA/ipvps.conf
+echo "IP=$host" > /var/lib/mXvx/ipvps.conf
 echo ""
 echo "  [INFO] Dont forget to renew cert"
 echo ""
@@ -134,7 +134,7 @@ echo -e "  ${COLOR1}[05]${NC} • [${YELLOW}Menu${NC}] SS WS     ${COLOR1}[11]${
 echo -e "  ${COLOR1}[06]${NC} • [${YELLOW}Menu${NC}] SET DNS   ${COLOR1}[12]${NC} • RENEW CERT       $COLOR1│$NC"
 if [ "$Isadmin" = "ON" ]; then
 echo -e "                                                  $COLOR1│$NC"
-echo -e "  ${COLOR1}[13]${NC} • [${YELLOW}Menu${NC}] Speedtest    ${COLOR1}[14]${NC} • [${YELLOW}Log{NC}] Cleaner   $COLOR1│$NC"
+echo -e "  ${COLOR1}[13]${NC} • [${YELLOW}Menu${NC}] Speedtest    ${COLOR1}[14]${NC} • [${YELLOW}log${NC}] Cleaner   $COLOR1│$NC"
 
 fi
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}"
