@@ -1,5 +1,5 @@
 [Unit]
-Description=SSH Over Websocket PY VX NETWORK
+Description=SSH Over Websocket Python By MXXVX
 Documentation=https://github.com/MXVX
 After=network.target nss-lookup.target
 

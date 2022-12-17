@@ -21,13 +21,13 @@ echo "Progress..." | lolcat
 sleep 3
 
 # Getting Proxy Template
-wget -q -O /usr/local/bin/ws-nontls https://raw.githubusercontent.com/MXVXID/vx/main/v2/websocket/ws-nontls.py
+wget -q -O /usr/local/bin/ws-nontls https://gitlab.com/vxnet/vx/-/raw/main/websocket/ws-nontls.py
 chmod +x /usr/local/bin/ws-nontls
 
 # Installing Service
 cat > /etc/systemd/system/ws-nontls.service << END
 [Unit]
-Description=Python Proxy Mod VX NETWORK
+Description=Python Proxy Mod MXVX
 Documentation=https://github.com/MXVX
 After=network.target nss-lookup.target
 
