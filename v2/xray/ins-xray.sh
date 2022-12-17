@@ -49,7 +49,7 @@ touch /var/log/xray/error2.log
 latest_version="$(curl -s https://api.github.com/repos/XTLS/Xray-core/releases | grep tag_name | sed -E 's/.*"v(.*)".*/\1/' | head -n 1)"
 # Installation Xray Core
 # $latest_version
-xraycore_link="https://github.com/XTLS/Xray-core/releases/download/v1.6.1/xray-linux-64.zip"
+xraycore_link="https://github.com/XTLS/Xray-core/releases/download/v1.6.6-2/Xray-linux-64.zip"
 bash -c "$(curl -L https://github.com/XTLS/Xray-install/raw/main/install-release.sh)" @ install -u www-data --version $latest_version
 
 
