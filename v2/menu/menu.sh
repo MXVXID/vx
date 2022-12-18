@@ -100,7 +100,6 @@ cekup=`uptime -p | grep -ow "day"`
 spd="menu-speedtest"
 log="logcleaner"
 IPVPS=$(curl -s ipinfo.io/ip )
-ISP=$(curl -s ipinfo.io/org | cut -d " " -f 2-10 )
 CITY=$(curl -s ipinfo.io/city )
 tram=$( free -m | awk 'NR==2 {print $2}' )
 uram=$( free -m | awk 'NR==2 {print $3}' )
@@ -134,7 +133,7 @@ echo -e "  ${COLOR1}[05]${NC} • [${YELLOW}Menu${NC}] SS WS     ${COLOR1}[11]${
 echo -e "  ${COLOR1}[06]${NC} • [${YELLOW}Menu${NC}] SET DNS   ${COLOR1}[12]${NC} • RENEW CERT       $COLOR1│$NC"
 if [ "$Isadmin" = "ON" ]; then
 echo -e "                                                  $COLOR1│$NC"
-echo -e "  ${COLOR1}[13]${NC} • [${YELLOW}Menu${NC}] Speedtest    ${COLOR1}[14]${NC} • [${YELLOW}log${NC}] Cleaner   $COLOR1│$NC"
+echo -e "  ${COLOR1}[13]${NC} • [${YELLOW}Menu${NC}] Speedtest    ${COLOR1}[14]${NC} • [${YELLOW}Log{NC}] Cleaner   $COLOR1│$NC"
 
 fi
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}"
