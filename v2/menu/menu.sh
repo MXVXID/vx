@@ -99,8 +99,11 @@ uptimecek=`uptime -p | awk '{print $6,$7}' | cut -d , -f1`
 cekup=`uptime -p | grep -ow "day"`
 spd="menu-speedtest"
 log="logcleaner"
+WKT=$(curl -s ipinfo.io/timezone )
 IPVPS=$(curl -s ipinfo.io/ip )
+ISP=$(curl -s ipinfo.io/org | cut -d " " -f 2-10 )
 CITY=$(curl -s ipinfo.io/city )
+DAY=$(date +%A)
 tram=$( free -m | awk 'NR==2 {print $2}' )
 uram=$( free -m | awk 'NR==2 {print $3}' )
 fram=$( free -m | awk 'NR==2 {print $4}' )

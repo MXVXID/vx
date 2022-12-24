@@ -238,7 +238,7 @@ asu=`cat<<EOF
       "id": "${uuid}",
       "aid": "0",
       "net": "ws",
-      "path": "/worryfree",
+      "path": "/vmess",
       "type": "none",
       "host": "",
       "tls": "tls"
@@ -253,7 +253,65 @@ ask=`cat<<EOF
       "id": "${uuid}",
       "aid": "0",
       "net": "ws",
+      "path": "/vmess",
+      "type": "none",
+      "host": "",
+      "tls": "none"
+}
+wor=`cat<<EOF
+      {
+      "v": "2",
+      "ps": "${user}",
+      "add": "${domain}",
+      "port": "443",
+      "id": "${uuid}",
+      "aid": "0",
+      "net": "ws",
       "path": "/worryfree",
+      "type": "none",
+      "host": "",
+      "tls": "tls"
+}
+EOF`
+wo=`cat<<EOF
+      {
+      "v": "2",
+      "ps": "${user}",
+      "add": "${domain}",
+      "port": "80",
+      "id": "${uuid}",
+      "aid": "0",
+      "net": "ws",
+      "path": "/worryfree",
+      "type": "none",
+      "host": "",
+      "tls": "none"
+}
+kuo=`cat<<EOF
+      {
+      "v": "2",
+      "ps": "${user}",
+      "add": "${domain}",
+      "port": "443",
+      "id": "${uuid}",
+      "aid": "0",
+      "net": "ws",
+      "path": "/kuota-habis",
+      "type": "none",
+      "host": "",
+      "tls": "tls"
+}
+EOF`
+kut=`cat<<EOF
+      {
+      "v": "2",
+      "ps": "${user}",
+      "add": "${domain}",
+      "port": "80",
+      "id": "${uuid}",
+      "aid": "0",
+      "net": "ws",
+      "path": "/kuota-habis",
       "type": "none",
       "host": "",
       "tls": "none"
@@ -279,6 +337,10 @@ vmess_base642=$( base64 -w 0 <<< $vmess_json2)
 vmess_base643=$( base64 -w 0 <<< $vmess_json3)
 vmesslink1="vmess://$(echo $asu | base64 -w 0)"
 vmesslink2="vmess://$(echo $ask | base64 -w 0)"
+vmesslink1="vmess://$(echo $wor | base64 -w 0)"
+vmesslink2="vmess://$(echo $wo | base64 -w 0)"
+vmesslink1="vmess://$(echo $kuo | base64 -w 0)"
+vmesslink2="vmess://$(echo $kut | base64 -w 0)"
 vmesslink3="vmess://$(echo $grpc | base64 -w 0)"
 systemctl restart xray > /dev/null 2>&1
 service cron restart > /dev/null 2>&1
@@ -297,7 +359,9 @@ echo -e "$COLOR1 ${NC} id            : ${uuid}"
 echo -e "$COLOR1 ${NC} alterId       : 0" 
 echo -e "$COLOR1 ${NC} Security      : auto" 
 echo -e "$COLOR1 ${NC} Network       : ws" 
+echo -e "$COLOR1 ${NC} Path          : /vmess" 
 echo -e "$COLOR1 ${NC} Path          : /worryfree" 
+echo -e "$COLOR1 ${NC} Path          : /kuota-habis" 
 echo -e "$COLOR1 ${NC} Path WSS      : wss://bug.com/vmess" 
 echo -e "$COLOR1 ${NC} ServiceName   : vmess-grpc" 
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}" 
