@@ -258,6 +258,7 @@ ask=`cat<<EOF
       "host": "",
       "tls": "none"
 }
+EOF`
 wor=`cat<<EOF
       {
       "v": "2",
@@ -287,6 +288,7 @@ wo=`cat<<EOF
       "host": "",
       "tls": "none"
 }
+EOF`
 kuo=`cat<<EOF
       {
       "v": "2",
@@ -370,6 +372,18 @@ echo -e "$COLOR1 ${NC} Link TLS : "
 echo -e "$COLOR1 ${NC} ${vmesslink1}" 
 echo -e "$COLOR1 ${NC} "
 echo -e "$COLOR1 ${NC} Link none TLS : "
+echo -e "$COLOR1 ${NC} ${vmesslink2}" 
+echo -e "$COLOR1 ${NC} "
+echo -e "$COLOR1 ${NC} Link TLS (woryfree) : "
+echo -e "$COLOR1 ${NC} ${vmesslink1}" 
+echo -e "$COLOR1 ${NC} "
+echo -e "$COLOR1 ${NC} Link none TLS (woryfree) : "
+echo -e "$COLOR1 ${NC} ${vmesslink2}" 
+echo -e "$COLOR1 ${NC} "
+echo -e "$COLOR1 ${NC} Link TLS (kuota-habis) : "
+echo -e "$COLOR1 ${NC} ${vmesslink1}" 
+echo -e "$COLOR1 ${NC} "
+echo -e "$COLOR1 ${NC} Link none TLS (kuota-habis) : "
 echo -e "$COLOR1 ${NC} ${vmesslink2}" 
 echo -e "$COLOR1 ${NC} "
 echo -e "$COLOR1 ${NC} Link GRPC : "
