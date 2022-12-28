@@ -129,7 +129,7 @@ cat > /etc/xray/config.json << END
        "streamSettings":{
          "network": "ws",
             "wsSettings": {
-                "path": "/vmess"
+                "path": "/worryfree"
           }
         }
      },
@@ -141,6 +141,7 @@ cat > /etc/xray/config.json << END
            "clients": [
               {
                  "password": "${uuid}"
+                 
 #trojanws
               }
           ],
@@ -249,44 +250,6 @@ cat > /etc/xray/config.json << END
      "network": "grpc",
         "grpcSettings": {
            "serviceName": "ss-grpc"
-#vmess
-             }
-          ]
-       },
-       "streamSettings":{
-         "network": "ws",
-            "wsSettings": {
-                "path": "/worryfree"
-          }
-        }
-     },
-    {
-      "listen": "/run/xray/trojan_ws.sock",
-      "protocol": "trojan",
-      "settings": {
-          "decryption":"none",		
-           "clients": [
-              {
-                 "password": "${uuid}"
-#vmess
-             }
-          ]
-       },
-       "streamSettings":{
-         "network": "ws",
-            "wsSettings": {
-                "path": "/kuota-habis"
-          }
-        }
-     },
-    {
-      "listen": "/run/xray/trojan_ws.sock",
-      "protocol": "trojan",
-      "settings": {
-          "decryption":"none",		
-           "clients": [
-              {
-                 "password": "${uuid}"
           }
        }
     }	
@@ -401,8 +364,8 @@ EOF
 #nginx config
 cat >/etc/nginx/conf.d/xray.conf <<EOF
     server {
-             listen 80;
-             listen [::]:80;
+             listen 8080;
+             listen [::]:8080;
              listen 443 ssl http2 reuseport;
              listen [::]:443 http2 reuseport;	
              server_name $domain;
@@ -425,7 +388,7 @@ sed -i '$ iproxy_set_header Connection "upgrade";' /etc/nginx/conf.d/xray.conf
 sed -i '$ iproxy_set_header Host \$http_host;' /etc/nginx/conf.d/xray.conf
 sed -i '$ i}' /etc/nginx/conf.d/xray.conf
 
-sed -i '$ ilocation = /vmess' /etc/nginx/conf.d/xray.conf
+sed -i '$ ilocation = /worryfree' /etc/nginx/conf.d/xray.conf
 sed -i '$ i{' /etc/nginx/conf.d/xray.conf
 sed -i '$ iproxy_redirect off;' /etc/nginx/conf.d/xray.conf
 sed -i '$ iproxy_pass http://unix:/run/xray/vmess_ws.sock;' /etc/nginx/conf.d/xray.conf
