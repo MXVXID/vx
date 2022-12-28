@@ -229,7 +229,7 @@ sed -i '/#vmess$/a\### '"$user $exp"'\
 exp=`date -d "$masaaktif days" +"%Y-%m-%d"`
 sed -i '/#vmessgrpc$/a\### '"$user $exp"'\
 },{"id": "'""$uuid""'","alterId": '"0"',"email": "'""$user""'"' /etc/xray/config.json
-ori=`cat<<EOF
+asu=`cat<<EOF
       {
       "v": "2",
       "ps": "${user}",
@@ -238,82 +238,22 @@ ori=`cat<<EOF
       "id": "${uuid}",
       "aid": "0",
       "net": "ws",
-      "path": "/vmess",
+      "path": "/",
       "type": "none",
       "host": "",
       "tls": "tls"
 }
 EOF`
-cok=`cat<<EOF
+ask=`cat<<EOF
       {
       "v": "2",
       "ps": "${user}",
       "add": "${domain}",
-      "port": "8080",
+      "port": "80",
       "id": "${uuid}",
       "aid": "0",
       "net": "ws",
-      "path": "/vmess",
-      "type": "none",
-      "host": "",
-      "tls": "none"
-}
-EOF`
-wor=`cat<<EOF
-      {
-      "v": "2",
-      "ps": "${user}",
-      "add": "${domain}",
-      "port": "443",
-      "id": "${uuid}",
-      "aid": "0",
-      "net": "ws",
-      "path": "/worryfree",
-      "type": "none",
-      "host": "",
-      "tls": "tls"
-}
-EOF`
-wo=`cat<<EOF
-      {
-      "v": "2",
-      "ps": "${user}",
-      "add": "${domain}",
-      "port": "8080",
-      "id": "${uuid}",
-      "aid": "0",
-      "net": "ws",
-      "path": "/worryfree",
-      "type": "none",
-      "host": "",
-      "tls": "none"
-}
-EOF`
-kuo=`cat<<EOF
-      {
-      "v": "2",
-      "ps": "${user}",
-      "add": "${domain}",
-      "port": "443",
-      "id": "${uuid}",
-      "aid": "0",
-      "net": "ws",
-      "path": "/kuota-habis",
-      "type": "none",
-      "host": "",
-      "tls": "tls"
-}
-EOF`
-kut=`cat<<EOF
-      {
-      "v": "2",
-      "ps": "${user}",
-      "add": "${domain}",
-      "port": "8080",
-      "id": "${uuid}",
-      "aid": "0",
-      "net": "ws",
-      "path": "/kuota-habis",
+      "path": "/",
       "type": "none",
       "host": "",
       "tls": "none"
@@ -337,13 +277,9 @@ EOF`
 vmess_base641=$( base64 -w 0 <<< $vmess_json1)
 vmess_base642=$( base64 -w 0 <<< $vmess_json2)
 vmess_base643=$( base64 -w 0 <<< $vmess_json3)
-vmesslink1="vmess://$(echo $ori | base64 -w 0)"
-vmesslink2="vmess://$(echo $cok | base64 -w 0)"
-vmesslink3="vmess://$(echo $wor | base64 -w 0)"
-vmesslink4="vmess://$(echo $wo | base64 -w 0)"
-vmesslink5="vmess://$(echo $kuo | base64 -w 0)"
-vmesslink6="vmess://$(echo $kut | base64 -w 0)"
-vmesslink7="vmess://$(echo $grpc | base64 -w 0)"
+vmesslink1="vmess://$(echo $asu | base64 -w 0)"
+vmesslink2="vmess://$(echo $ask | base64 -w 0)"
+vmesslink3="vmess://$(echo $grpc | base64 -w 0)"
 systemctl restart xray > /dev/null 2>&1
 service cron restart > /dev/null 2>&1
 clear
@@ -361,9 +297,7 @@ echo -e "$COLOR1 ${NC} id            : ${uuid}"
 echo -e "$COLOR1 ${NC} alterId       : 0" 
 echo -e "$COLOR1 ${NC} Security      : auto" 
 echo -e "$COLOR1 ${NC} Network       : ws" 
-echo -e "$COLOR1 ${NC} Path          : /vmess" 
-echo -e "$COLOR1 ${NC} Path          : /worryfree" 
-echo -e "$COLOR1 ${NC} Path          : /kuota-habis" 
+echo -e "$COLOR1 ${NC} Path          : /vmess - /bebas" 
 echo -e "$COLOR1 ${NC} Path WSS      : wss://bug.com/vmess" 
 echo -e "$COLOR1 ${NC} ServiceName   : vmess-grpc" 
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}" 
@@ -374,20 +308,8 @@ echo -e "$COLOR1 ${NC} "
 echo -e "$COLOR1 ${NC} Link none TLS : "
 echo -e "$COLOR1 ${NC} ${vmesslink2}" 
 echo -e "$COLOR1 ${NC} "
-echo -e "$COLOR1 ${NC} Link TLS (woryfree) : "
-echo -e "$COLOR1 ${NC} ${vmesslink3}" 
-echo -e "$COLOR1 ${NC} "
-echo -e "$COLOR1 ${NC} Link none TLS (woryfree) : "
-echo -e "$COLOR1 ${NC} ${vmesslink4}" 
-echo -e "$COLOR1 ${NC} "
-echo -e "$COLOR1 ${NC} Link TLS (kuota-habis) : "
-echo -e "$COLOR1 ${NC} ${vmesslink5}" 
-echo -e "$COLOR1 ${NC} "
-echo -e "$COLOR1 ${NC} Link none TLS (kuota-habis) : "
-echo -e "$COLOR1 ${NC} ${vmesslink6}" 
-echo -e "$COLOR1 ${NC} "
 echo -e "$COLOR1 ${NC} Link GRPC : "
-echo -e "$COLOR1 ${NC} ${vmesslink7}"
+echo -e "$COLOR1 ${NC} ${vmesslink3}"
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}" 
 echo -e "$COLOR1┌────────────────────── BY ───────────────────────┐${NC}"
 echo -e "$COLOR1│${NC}              • MXVX •            $COLOR1│$NC"
