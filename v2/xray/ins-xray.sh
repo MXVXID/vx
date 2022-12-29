@@ -129,7 +129,45 @@ cat > /etc/xray/config.json << END
        "streamSettings":{
          "network": "ws",
             "wsSettings": {
-                "path": "/"
+                "path": "/vmess"
+          }
+        }
+     },
+    {
+      "listen": "/run/xray/trojan_ws.sock",
+      "protocol": "trojan",
+      "settings": {
+          "decryption":"none",		
+           "clients": [
+              {
+                 "password": "${uuid}"
+#vmess
+             }
+          ]
+       },
+       "streamSettings":{
+         "network": "ws",
+            "wsSettings": {
+                "path": "/worryfree"
+          }
+        }
+     },
+    {
+      "listen": "/run/xray/trojan_ws.sock",
+      "protocol": "trojan",
+      "settings": {
+          "decryption":"none",		
+           "clients": [
+              {
+                 "password": "${uuid}"
+
+             }
+          ]
+       },
+       "streamSettings":{
+         "network": "ws",
+            "wsSettings": {
+                "path": "/kuota-habis"
           }
         }
      },
